@@ -5,6 +5,7 @@ class Ball {
   float diameter;       // 直径
   color ballColor;      // 色
   float gravity;        // 重力加速度（水中なので遅め）
+  float flowStrength;   // 水流の影響を受ける強度
   boolean isActive;     // 画面内にあるかどうか
   
   // コンストラクタ
@@ -15,6 +16,7 @@ class Ball {
     this.diameter = 30;
     this.ballColor = color(100, 200, 100, 200);
     this.gravity = 0.15;  // 水中を想定した遅めの重力
+    this.flowStrength = 2.0;  // ボールは水流の影響を受けやすい
     this.isActive = true;
   }
   
@@ -30,6 +32,13 @@ class Ball {
     
     // 位置更新
     y += vy;
+    
+    // 水の流れによるX方向の動き
+    float flowX = getWaterFlowX(y, flowStrength);
+    x += flowX;
+    
+    // 画面端の処理
+    x = constrain(x, diameter/2, width - diameter/2);
     
     // 底面との衝突判定と跳ね返り
     if (y + diameter/2 >= height) {
