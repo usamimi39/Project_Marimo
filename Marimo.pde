@@ -1,3 +1,5 @@
+import de.looksgood.ani.*;
+
 // ボールのリストを管理
 ArrayList<Ball> balls;
 ArrayList<Bubble> bubbles;
@@ -6,6 +8,9 @@ int bubbleSpawnTimer = 0;         // 泡の生成タイマー
 int bubbleSpawnInterval = 10;     // 泡の生成間隔（フレーム）
 
 void setup() {
+  // Aniライブラリを初期化（最初に呼び出す必要がある）
+  Ani.init(this);
+  
   fullScreen();
   balls = new ArrayList<Ball>();
   bubbles = new ArrayList<Bubble>();
