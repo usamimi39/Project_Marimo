@@ -13,7 +13,7 @@ class Ball {
     this.x = startX;
     this.y = 0;
     this.vy = 0;
-    this.diameter = 30;
+    this.diameter = 45;
     this.ballColor = color(100, 200, 100, 200);
     this.gravity = 0.15;  // 水中を想定した遅めの重力
     this.flowStrength = 2.0;  // ボールは水流の影響を受けやすい

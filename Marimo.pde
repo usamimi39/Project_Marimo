@@ -44,8 +44,8 @@ void draw() {
   // アクションがトリガーされたか確認（連続発生を防ぐ）
   boolean currentActionState = checkActionTriggered();
   if (currentActionState && !lastActionState) {
-    // 新しいボールを追加（ランダムなX位置から）
-    balls.add(new Ball(random(50, width - 50)));
+    // 新しいボールを追加（画面中央から）
+    balls.add(new Ball(width / 2));
   }
   lastActionState = currentActionState;
   
